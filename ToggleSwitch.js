@@ -19,7 +19,7 @@ import {
 import PropTypes from "prop-types";
 
 export default class ToggleSwitch extends React.Component {
-  static calculateDimensions(size) {
+  static calculateDimensions(size, width, padding) {
     switch (size) {
       case "small":
         return {
@@ -39,8 +39,8 @@ export default class ToggleSwitch extends React.Component {
         };
       default:
         return {
-          width: 46,
-          padding: 12,
+          width: width,
+          padding: padding,
           circleWidth: 18,
           circleHeight: 18,
           translateX: 26
