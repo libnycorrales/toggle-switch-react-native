@@ -57,7 +57,9 @@ export default class ToggleSwitch extends React.Component {
     labelStyle: PropTypes.object,
     onToggle: PropTypes.func,
     icon: PropTypes.object,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    width: PropTypes.number,
+    padding: PropTypes.number,
   };
 
   static defaultProps = {
@@ -71,11 +73,13 @@ export default class ToggleSwitch extends React.Component {
     trackOnStyle: {},
     trackOffStyle: {},
     icon: null,
-    disabled: false
+    disabled: false,
+    width: 100,
+    padding: 12,
   };
 
   offsetX = new Animated.Value(0);
-  dimensions = ToggleSwitch.calculateDimensions(this.props.size);
+  dimensions = ToggleSwitch.calculateDimensions(this.props.size, this.props.width, this.props.padding);
 
   createToggleSwitchStyle = () => ({
     justifyContent: "center",
