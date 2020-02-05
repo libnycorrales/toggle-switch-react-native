@@ -19,7 +19,7 @@ import {
 import PropTypes from "prop-types";
 
 export default class ToggleSwitch extends React.Component {
-  static calculateDimensions(size, width, padding) {
+  static calculateDimensions(size, width, padding, circleSize) {
     switch (size) {
       case "small":
         return {
@@ -41,8 +41,8 @@ export default class ToggleSwitch extends React.Component {
         return {
           width: width,
           padding: padding,
-          circleWidth: 18,
-          circleHeight: 18,
+          circleWidth: circleSize,
+          circleHeight: circleSize,
           translateX: 26
         };
     }
@@ -60,6 +60,7 @@ export default class ToggleSwitch extends React.Component {
     disabled: PropTypes.bool,
     width: PropTypes.number,
     padding: PropTypes.number,
+    circleSize: PropTypes.number,
   };
 
   static defaultProps = {
@@ -76,10 +77,11 @@ export default class ToggleSwitch extends React.Component {
     disabled: false,
     width: 100,
     padding: 12,
+    circleSize: 49,
   };
 
   offsetX = new Animated.Value(0);
-  dimensions = ToggleSwitch.calculateDimensions(this.props.size, this.props.width, this.props.padding);
+  dimensions = ToggleSwitch.calculateDimensions(this.props.size, this.props.width, this.props.padding, this.props.circleSize);
 
   createToggleSwitchStyle = () => ({
     justifyContent: "center",
